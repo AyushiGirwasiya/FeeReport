@@ -1,6 +1,10 @@
-package com.javatpoint.feereport;
+package com.javatpoint.feereport.accountantSection;
 
-import java.awt.BorderLayout;
+import com.javatpoint.feereport.*;
+import com.javatpoint.feereport.studentsection.AddStudent;
+import com.javatpoint.feereport.studentsection.EditStudent;
+import com.javatpoint.feereport.studentsection.ViewStudent;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;

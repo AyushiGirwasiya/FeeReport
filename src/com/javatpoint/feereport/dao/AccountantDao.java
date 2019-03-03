@@ -1,4 +1,6 @@
-package com.javatpoint.feereport;
+package com.javatpoint.feereport.dao;
+
+import com.javatpoint.feereport.domains.Accountant;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -33,6 +35,8 @@ public class AccountantDao {
 	}
 	public static int save(Accountant a){
 		int status=0;
+
+		//try catch error/exception handling
 		try{
 			Connection con=getCon();
 			PreparedStatement ps=con.prepareStatement("insert into feereport_accountant(name,password,email,contactno) values(?,?,?,?)");
@@ -42,7 +46,9 @@ public class AccountantDao {
 			ps.setString(4,a.getContactno());
 			status=ps.executeUpdate();
 			con.close();
-		}catch(Exception e){System.out.println(e);}
+		}catch(Exception e){
+			System.out.println(e);
+		}
 		return status;
 	}
 	public static List<Accountant> view(){

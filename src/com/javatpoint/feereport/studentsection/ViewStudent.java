@@ -1,25 +1,30 @@
-package com.javatpoint.feereport;
+package com.javatpoint.feereport.studentsection;
 
-import java.awt.BorderLayout;
+import com.javatpoint.feereport.dao.StudentDao;
+import com.javatpoint.feereport.domains.Student;
+
 import java.awt.EventQueue;
 import java.util.List;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.border.EmptyBorder;
 
 public class ViewStudent extends JFrame {
 	static ViewStudent frame;
+
 	public ViewStudent() {
+
 		//Code to view data in JTable
-		List<Student> list=StudentDao.view();
+		List<Student> list= StudentDao.view();  //list created -collections
 		int size=list.size();
 		
 		String data[][]=new String[size][12];
+
 		int row=0;
+
 		for(Student s:list){
+
 			data[row][0]=String.valueOf(s.getRollno());
 			data[row][1]=s.getName();
 			data[row][2]=s.getEmail();

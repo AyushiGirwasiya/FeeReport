@@ -1,20 +1,20 @@
-package com.javatpoint.feereport;
+package com.javatpoint.feereport.accountantSection;
 
-import java.awt.BorderLayout;
+import com.javatpoint.feereport.dao.AccountantDao;
+import com.javatpoint.feereport.domains.Accountant;
+
 import java.awt.EventQueue;
 import java.util.List;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.border.EmptyBorder;
 
 public class ViewAccountant extends JFrame {
 	static ViewAccountant frame;
 	public ViewAccountant() {
 		//Code to view data in JTable
-		List<Accountant> list=AccountantDao.view();
+		List<Accountant> list= AccountantDao.view();
 		int size=list.size();
 		
 		String data[][]=new String[size][5];

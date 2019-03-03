@@ -1,20 +1,20 @@
 package com.javatpoint.feereport;
 
-import java.awt.BorderLayout;
+import com.javatpoint.feereport.dao.StudentDao;
+import com.javatpoint.feereport.domains.Student;
+
 import java.awt.EventQueue;
 import java.util.List;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.border.EmptyBorder;
 
 public class DueFee extends JFrame {
 	static DueFee frame;
 	public DueFee() {
 		//Code to view data in JTable
-		List<Student> list=StudentDao.due();
+		List<Student> list= StudentDao.due();
 		int size=list.size();
 		
 		String data[][]=new String[size][12];

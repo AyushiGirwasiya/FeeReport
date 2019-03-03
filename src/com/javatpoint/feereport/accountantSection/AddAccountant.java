@@ -1,6 +1,9 @@
-package com.javatpoint.feereport;
+package com.javatpoint.feereport.accountantSection;
 
-import java.awt.BorderLayout;
+import com.javatpoint.feereport.dao.AccountantDao;
+import com.javatpoint.feereport.adminSection.AdminSection;
+import com.javatpoint.feereport.domains.Accountant;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -78,6 +81,7 @@ public class AddAccountant extends JFrame {
 		textField_2.setColumns(10);
 		
 		JButton btnAddAccountant = new JButton("Add Accountant");
+
 		btnAddAccountant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name=textField.getText();
@@ -86,9 +90,12 @@ public class AddAccountant extends JFrame {
 				String email=textField_1.getText();
 				String contactno=textField_2.getText();
 				
-				Accountant a=new Accountant(name,password,email,contactno);
-				int status=AccountantDao.save(a);
-				
+				Accountant a=new Accountant(name,password,email,contactno);  //object creation
+				int status= AccountantDao.save(a);    //save accountant to database
+
+				System.out.println(a.getId());//getter
+				a.setId(120);  //setter
+
 				if(status>0){
 					JOptionPane.showMessageDialog(AddAccountant.this,"Accountant added successfully!");
 					textField.setText("");textField_1.setText("");textField_2.setText("");

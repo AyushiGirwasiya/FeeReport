@@ -1,12 +1,14 @@
-package com.javatpoint.feereport;
+package com.javatpoint.feereport.adminSection;
 
-import java.awt.BorderLayout;
+import com.javatpoint.feereport.accountantSection.AddAccountant;
+import com.javatpoint.feereport.FeeReport;
+import com.javatpoint.feereport.accountantSection.ViewAccountant;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -15,7 +17,6 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class AdminSection extends JFrame {
@@ -26,6 +27,7 @@ public class AdminSection extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -54,6 +56,7 @@ public class AdminSection extends JFrame {
 		lblAdminSection.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
 		JButton btnAddAccountant = new JButton("Add Accountant");
+
 		btnAddAccountant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AddAccountant.main(new String[]{});

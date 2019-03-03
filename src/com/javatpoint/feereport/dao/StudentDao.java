@@ -1,4 +1,6 @@
-package com.javatpoint.feereport;
+package com.javatpoint.feereport.dao;
+import com.javatpoint.feereport.domains.Student;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,12 +50,14 @@ public class StudentDao {
 		return status;
 	}
 	public static List<Student> view(){
-		List<Student> list=new ArrayList<Student>();
+		List<Student> list=new ArrayList<Student>();   //arraylist
 		try{
 			Connection con=AccountantDao.getCon();
 			PreparedStatement ps=con.prepareStatement("select * from feereport_student");
+
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()){
+
 				Student s=new Student();
 				s.setRollno(rs.getInt("rollno"));
 				s.setName(rs.getString("name"));
@@ -67,10 +71,12 @@ public class StudentDao {
 				s.setState(rs.getString("state"));
 				s.setCountry(rs.getString("country"));
 				s.setContactno(rs.getString("contactno"));
-				list.add(s);
+
+				list.add(s);  //adding student to list
 			}
 			con.close();
 		}catch(Exception e){System.out.println(e);}
+
 		return list;
 	}
 	public static Student getStudentByRollno(int rollno){

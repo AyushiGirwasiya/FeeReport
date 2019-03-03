@@ -1,6 +1,5 @@
-package com.javatpoint.feereport;
+package com.javatpoint.feereport.adminSection;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -16,7 +15,6 @@ import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -57,7 +55,6 @@ public class AdminLogin extends JFrame {
 		lblAdminLogin.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
 		JLabel lblName = new JLabel("Name:");
-		
 		JLabel lblPassword = new JLabel("Password:");
 		
 		textField = new JTextField();
@@ -66,14 +63,18 @@ public class AdminLogin extends JFrame {
 		passwordField = new JPasswordField();
 		
 		JButton btnLogin = new JButton("login");
+
+		//on clicking login
 		btnLogin.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
 			String name=textField.getText();
 			char ch[]=passwordField.getPassword();
-			String password=String.valueOf(ch);
+			String password=String.valueOf(ch);   //java way to convert character array to String
+
 			if(name.equals("admin")&&password.equals("admin123")){
 				String s[]={};
-				AdminSection.main(s);
+				AdminSection.main(s); //static method , hence method call without creating object
 				frame.dispose();
 			}else{
 				JOptionPane.showMessageDialog(AdminLogin.this,"Sorry, username or password error!");
@@ -81,6 +82,7 @@ public class AdminLogin extends JFrame {
 			}
 			}
 		});
+
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)

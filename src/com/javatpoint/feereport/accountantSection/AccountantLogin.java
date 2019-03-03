@@ -1,6 +1,7 @@
-package com.javatpoint.feereport;
+package com.javatpoint.feereport.accountantSection;
 
-import java.awt.BorderLayout;
+import com.javatpoint.feereport.dao.AccountantDao;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -70,7 +71,7 @@ public class AccountantLogin extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 			String name=textField.getText();
 			String password=String.valueOf(passwordField.getPassword());
-			boolean status=AccountantDao.validate(name, password);
+			boolean status= AccountantDao.validate(name, password);
 			if(status){
 				AccountantSection.main(new String[]{});
 				frame.dispose();
